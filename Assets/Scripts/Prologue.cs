@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Prologue : MonoBehaviour {
     static string SelectedOption;
+	public Kino.AnalogGlitch glitch;
     public TextMesh text;
     private Animator textAnimator;
     private bool waitingForKeyEvents = true;
@@ -19,6 +20,7 @@ public class Prologue : MonoBehaviour {
 	void Start () {
         TextMesh text = GetComponent<TextMesh>();
         Animator textAnimator = GetComponent<Animator>();
+		glitch = GameObject.Find("Main Camera").GetComponent<Kino.AnalogGlitch>();
         Color originalColor = text.color;
         text.text = "I'm pretty excited this is my first date in years,\nMy date's name is Adeline; \nWe met on Cupid.com.";
 		StartCoroutine (MainLoop ());
@@ -63,33 +65,28 @@ public class Prologue : MonoBehaviour {
         {
 			gameObject.transform.position = textPos[index]; 
             text.text = textString;
+			if (textString == prologueText [1]) {
+				glitch.scanLineJitter = 0.19f;
+				glitch.verticalJump = 0.17f;
+				glitch.horizontalShake = 0.0f;
+				glitch.colorDrift = 0.19f;
+			}
             FadeIn();
-            yield return new WaitForSeconds(1);
-            /*if (text.text == prologueText[1])
-            {
-                //Typewrite?
-                while(!(Input.GetKeyDown(KeyCode.Escape))) {
-					StartCoroutine(Keys());
-                    yield return new WaitForSeconds(0.1f);
-                }
-                waitingForKeyEvents = false;
-                if (option == 0)
-                {
-                //    SelectedOption = "Dog";
-                //} else if(option == 1)
-                //{
-                //    SelectedOption = "Cat";
-                //}
-            }*/
-			if (textString == prologueText [1])
+            yield return new WaitForSeconds(5);
+			glitch.scanLineJitter = 0.0f;
+			glitch.verticalJump = 0.0f;
+			glitch.horizontalShake = 0.0f;
+			glitch.colorDrift = 0.0f;
+			if (textString == prologueText [1]) {
 				FadeOut ();
 				yield return new WaitForSeconds (5);
-				SceneManager.LoadScene ("Park_Scene",LoadSceneMode.Additive);
-            yield return new WaitForSeconds(5);
+				SceneManager.LoadScene ("Park_Scene", LoadSceneMode.Additive);
+			}
             FadeOut();
             yield return new WaitForSeconds(1);
             index++;
         }
+
     }
     /*IEnumerator Keys ()
     {

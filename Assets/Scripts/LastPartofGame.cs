@@ -33,6 +33,12 @@ public class LastPartofGame : MonoBehaviour {
         Debug.Log("done");
 		//rewrite for buttons
 	}
+	//IEnumerator handleInput() {
+		//while (Input == false) {
+		//	
+		//	yield return new WaitForSeconds (0.6f);
+		//}
+	//}
 	public IEnumerator typein(string data) {
         if(textBox1.text != "" && textBox2.text != "" && textBox3.text != "")
         {

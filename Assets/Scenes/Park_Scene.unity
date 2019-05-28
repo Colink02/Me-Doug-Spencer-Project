@@ -567,6 +567,26 @@ Prefab:
       propertyPath: adeline
       value: 
       objectReference: {fileID: 1307820678}
+    - target: {fileID: 114691821990252192, guid: e14931262f39ce94da039e06efb6aab7,
+        type: 2}
+      propertyPath: choice1Object
+      value: 
+      objectReference: {fileID: 780916724}
+    - target: {fileID: 114691821990252192, guid: e14931262f39ce94da039e06efb6aab7,
+        type: 2}
+      propertyPath: choice2Object
+      value: 
+      objectReference: {fileID: 1473923825}
+    - target: {fileID: 114691821990252192, guid: e14931262f39ce94da039e06efb6aab7,
+        type: 2}
+      propertyPath: choice1Group
+      value: 
+      objectReference: {fileID: 1780132812}
+    - target: {fileID: 114691821990252192, guid: e14931262f39ce94da039e06efb6aab7,
+        type: 2}
+      propertyPath: choice2Group
+      value: 
+      objectReference: {fileID: 857672033}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e14931262f39ce94da039e06efb6aab7, type: 2}
   m_IsPrefabParent: 0

@@ -1,0 +1,57 @@
+Initialize engine version: 5.6.3p2 (b3d7a6428558)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) HD Graphics 530 (ID=0x1912)
+    Vendor:   Intel
+    VRAM:     2147 MB
+    Driver:   21.20.16.4627
+Begin MonoManager ReloadAssembly
+Platform assembly: F:\Game Programming\Doug, Spencer, Colin Game Project\finalCopy_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading F:\Game Programming\Doug, Spencer, Colin Game Project\finalCopy_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: F:\Game Programming\Doug, Spencer, Colin Game Project\finalCopy_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading F:\Game Programming\Doug, Spencer, Colin Game Project\finalCopy_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: F:\Game Programming\Doug, Spencer, Colin Game Project\finalCopy_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading F:\Game Programming\Doug, Spencer, Colin Game Project\finalCopy_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: F:\Game Programming\Doug, Spencer, Colin Game Project\finalCopy_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading F:\Game Programming\Doug, Spencer, Colin Game Project\finalCopy_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: F:\Game Programming\Doug, Spencer, Colin Game Project\finalCopy_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading F:\Game Programming\Doug, Spencer, Colin Game Project\finalCopy_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.167 seconds
+Platform assembly: F:\Game Programming\Doug, Spencer, Colin Game Project\finalCopy_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: F:\Game Programming\Doug, Spencer, Colin Game Project\finalCopy_Data\Managed\System.dll (this message is harmless)
+desktop: 1280x1024 60Hz; virtual: 3200x1104 at -1920,-80
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 2.611648 ms
+Hi 606kinzelc
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 3780 -> priority: 1 
+  Thread -> id: 2c44 -> priority: 1 
+TAYAYAY
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.860149 ms
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 318.
+Total: 0.289684 ms (FindLiveObjects: 0.030155 ms CreateObjectMapping: 0.026626 ms MarkObjects: 0.193443 ms  DeleteObjects: 0.038496 ms)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Material:Internal_CreateWithShader (UnityEngine.Material,UnityEngine.Shader)
+  at UnityEngine.Material..ctor (UnityEngine.Shader shader) [0x00000] in <filename unknown>:0 
+  at FadeCamera.Awake () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at LastPartofGame.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+

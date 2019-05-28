@@ -2,62 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Diagnostics;
 public class backgroundData : MonoBehaviour {
-	
-	private int maxPerLine = 90;
-	public static TextMesh backgroundText;
-	public float random;
-    private bool blinkOk = true;
-	private float blinkRandom;
-	private SpriteRenderer adeline;
-    private int blinkCooldown = 0;
-	public Sprite blink;
-	public Sprite smile;
-	public int lines;
-    public string name;
+    public new static string name = "";
 	void Awake() {
-		backgroundText = gameObject.GetComponent<TextMesh> ();
-		adeline = (SpriteRenderer)GameObject.Find("adeline").GetComponent<SpriteRenderer>();
-        name = System.Environment.UserName;
-		Debug.Log ("Hi " + name);
-	}
-	void Update () {
-		random = Random.Range(1,4);
-		if (backgroundText.text.Length <= maxPerLine * 20) {
-			if (random >= 1 && random < 2 ) { 
-				backgroundText.text += "0";
-			} else {
-				backgroundText.text += "1";
-			}
-		}
-		lines = backgroundText.text.Split ("\n".ToCharArray ()).Length;
-		if (backgroundText.text.Length >= (maxPerLine * lines)) {
-			backgroundText.text += "\n";
-		}
-		if (lines == 14) {
-            //backgroundText.text = "";
-            int index = backgroundText.text.IndexOf(System.Environment.NewLine);
-            string newText = backgroundText.text.Substring(index + System.Environment.NewLine.Length);
-            backgroundText.text = newText;
-            lines = 13;
-        }
-		blinkRandom = Random.Range (0, 400);
-		if ((blinkCooldown >= 0) && (blinkRandom == 28) && blinkOk)
+        //If you are reading this Powershell is a pain.....
+        //This gets me their Name from Windows Active Directory (Or something like that)
+        //More Info here: https://serverfault.com/questions/582696/retrieve-current-domain-users-full-name
+        System.Diagnostics.Process envname = new System.Diagnostics.Process
         {
-            StartCoroutine(revert());
-        }
-        if(blinkCooldown > 0)
+            StartInfo = new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = "powershell.exe",
+                Arguments = "$user = whoami \nGet-WMIObject Win32_UserAccount | where caption -eq $user | select FullName | ft -hide",
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                CreateNoWindow = true
+            }
+        };
+        envname.Start();
+        backgroundData.name = envname.StandardOutput.ReadToEnd().Split(" ".ToCharArray())[0];// System.Environment.UserName;
+		UnityEngine.Debug.Log ("Hi " + name);
+	}
+    public void CallMePls(string selection)
+    {
+        UnityEngine.Debug.Log("TAYAYAY");
+        if(selection == "Start")
         {
-            blinkCooldown -= (int) Mathf.Ceil(Time.deltaTime);
+            SceneManager.LoadScene(1);
+        } else
+        {
+            Application.Quit();
         }
-	}
-	IEnumerator revert() {
-        blinkOk = false;
-        blinkCooldown += 15;
-        yield return new WaitForSeconds(1);
-        adeline.sprite = blink;
-        yield return new WaitForSeconds (0.2f);
-		adeline.sprite = smile;
-        blinkOk = true;
-	}
+    }
 }

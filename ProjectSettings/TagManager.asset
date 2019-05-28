@@ -7,6 +7,7 @@ TagManager:
   - textboi
   - choice1
   - choice2
+  - alert
   layers:
   - Default
   - TransparentFX

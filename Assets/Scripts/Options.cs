@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Options : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public BoxCollider boxCollision;
+    public static bool Input;
+    public static string choiceName = ""; 
+    void OnMouseUp()
+    {
+       if(!(Input)) {
+            Input = true;
+            choiceName = GameObject.Find("Text" + gameObject.name.Replace(" ","")).GetComponent<TextMesh>().text;
+            Debug.Log("Game Object is " + choiceName);
+        }
+    }
 }
